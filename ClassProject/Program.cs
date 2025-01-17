@@ -1,3 +1,6 @@
+using ClassProject.Areas.Identity.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ClassProject;
 
 public class Program
@@ -6,6 +9,13 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddIdentityCore<User>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddEntityFrameworkStores<AuthContext>();
+        
+        var connectionString = builder.Configuration.GetConnectionString("AuthContextConnection");
+        
+        builder.Services.AddDbContext<AuthContext>(options => options.UseSqlServer(connectionString));
 
         // Add services to the container.
 

@@ -1,16 +1,13 @@
+using ClassProject.Areas.Identity.Data;
 using ClassProject.DTOs;
-using ClassProject;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClassProject.Services
 {
     public class UserDataService
     {
-        private readonly ClassProjectContext _context;
+        private readonly AuthContext _context;
 
-        public UserDataService(ClassProjectContext context)
+        public UserDataService(AuthContext context)
         {
             _context = context;
         }
@@ -34,7 +31,7 @@ namespace ClassProject.Services
         // Get all users
         public async Task<List<User>> GetAllUsersAsync()
         {
-            return await _context.Users.ToListAsync();
+            return _context.Users.ToList();
         }
 
         // Update user

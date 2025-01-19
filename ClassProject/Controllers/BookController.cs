@@ -22,17 +22,17 @@ public class BookController : ControllerBase
 
     // POST api/<BookController>
     [HttpPost]
-    public Book Post([FromBody] Book book)
+    public Book_Initial Post([FromBody] Book_Initial bookInitial)
     {
-        Console.WriteLine(book);
-        return book;
+        Console.WriteLine(bookInitial);
+        return bookInitial;
     }
 
     // PUT api/<BookController>/5
     [HttpPut("{id}")]
     public void Put(int id, [FromBody] string value)
     {
-        Book book = new Book();
+        Book_Initial bookInitial = new Book_Initial();
     }
 
     // DELETE api/<BookController>/5

@@ -4,7 +4,7 @@ using ClassProject.Validations;
 
 namespace ClassProject;
 
-public class Book
+public class Book_Initial
 {
     public int Id { get; set; }
     [Required, JsonPropertyName("Name"), StringLength(25)]
